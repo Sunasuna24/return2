@@ -83,6 +83,15 @@ function 全体のチケット代を計算する(unitPrice, number) {
 function クーポンを適用する(price, hasCoupon) {
     // ここに処理を書く。
     // クーポン適用後のチケット代は「couponPrice」という変数を用いよ。
+    if (hasCoupon) {
+        couponPrice = price - 1000;
+    } else {
+        couponPrice = price;
+    }
+
+    // couponPrice = price - (hasCoupon ? 1000 : 0);
+
+    if (couponPrice < 0) couponPrice = 0;
 
     return couponPrice;
 }
@@ -119,8 +128,7 @@ function フォームの値を取得する(document) {
         }
     }
 
-    let coupon = document.getElementById('coupon').value;
-    let hasCoupon = coupon == "on" ? true : false;
+    let hasCoupon = document.getElementById('coupon').checked;
 
     let values = {
         'date': date,
