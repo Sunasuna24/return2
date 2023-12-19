@@ -35,6 +35,18 @@ button.addEventListener('click', function () {
 function 一人当たりのチケット料金を算出する(age) {
     // ここに処理を書く。
     // 一人当たりのチケット料金は「price」と言う変数を用いよ
+    let price = 0;
+    switch (age) {
+        case "young":
+            price = 600;
+            break;
+        case "middle":
+            price = 1000;
+            break;
+        case "elderly":
+            price = 800;
+            break;
+    }
 
     return price;
 }
@@ -50,6 +62,12 @@ function 一人当たりのチケット料金を算出する(age) {
 function 全体のチケット代を計算する(unitPrice, number) {
     // ここに処理を書く。
     // 全体のチケット代は「totalPrice」という変数を用いよ
+    let totalPrice = unitPrice * number;
+    if (10 <= number) {
+        totalPrice = totalPrice * 0.9;
+    }
+
+    // let totalPrice = unitPrice * number * (10 <= number ? 0.9 : 1);
 
     return totalPrice;
 }
@@ -65,6 +83,15 @@ function 全体のチケット代を計算する(unitPrice, number) {
 function クーポンを適用する(price, hasCoupon) {
     // ここに処理を書く。
     // クーポン適用後のチケット代は「couponPrice」という変数を用いよ。
+    if (hasCoupon) {
+        couponPrice = price - 1000;
+    } else {
+        couponPrice = price;
+    }
+
+    // couponPrice = price - (hasCoupon ? 1000 : 0);
+
+    if (couponPrice < 0) couponPrice = 0;
 
     return couponPrice;
 }
@@ -82,6 +109,15 @@ function クーポンを適用する(price, hasCoupon) {
 function ラッキー7を適用する(date, price) {
     // ここに処理を書く
     // ラッキー7処理後のチケット代は「totalPrice」という変数を用いよ。
+    const trimedDate = date.replace(/-/g, "");
+    const sumedNumber = trimedDate.split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+
+    let totalPrice = price;
+    if (sumedNumber % 7 == 0) {
+        totalPrice = price * 0.3;
+    }
+
+    // let totalPrice = price * (sumedNumber % 7 == 0 ? 1 : 0.3);
 
     return totalPrice;
 }
