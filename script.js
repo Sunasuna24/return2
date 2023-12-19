@@ -35,6 +35,18 @@ button.addEventListener('click', function () {
 function 一人当たりのチケット料金を算出する(age) {
     // ここに処理を書く。
     // 一人当たりのチケット料金は「price」と言う変数を用いよ
+    let price = 0;
+    switch (age) {
+        case "young":
+            price = 600;
+            break;
+        case "middle":
+            price = 1000;
+            break;
+        case "elderly":
+            price = 800;
+            break;
+    }
 
     return price;
 }
