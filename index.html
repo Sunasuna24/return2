@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>returnの教材②</title>
+</head>
+<body>
+    <h1>チケット販売システム</h1>
+    <p>情報を入力すると、チケットが購入できます。</p>
+    <h2>入場料の合計</h2>
+    <p>現在の入場料の合計は：<span id="totalPrice" style="color: red;"></span>円です。</p>
+    <h2>チケット販売</h2>
+    <p>下記を入力してチケットをご購入ください。</p>
+    <div>
+        <h3>来場日</h3>
+        <input type="date" name="date" required>
+    </div>
+    <div>
+        <h3>人数</h3>
+        <input type="number" min="1" required><span>人</span>
+    </div>
+    <div>
+        <h3>年齢</h3>
+        <input type="radio" name="age" value="" id="young" required>
+        <label for="young">15歳以下</label>
+        <input type="radio" name="age" value="middle" id="middle">
+        <label for="middle">16歳以上、59歳以下</label>
+        <input type="radio" name="age" value="elderly" id="elderly">
+        <label for="elderly">60歳以上</label>
+    </div>
+    <div>
+        <h3>クーポンの有無</h3>
+        <input id="coupon" type="checkbox">
+        <label for="coupon">はい、クーポンを持っています</label>
+    </div>
+    <div>
+        <input id="button" type="submit" value="購入する">
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
