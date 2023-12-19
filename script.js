@@ -106,9 +106,18 @@ function クーポンを適用する(price, hasCoupon) {
  * 例②：現時点でのチケット代が¥1,000でもしラッキー7の日に当たった場合、7割引なので¥300で入場できる。
  * 例③：2015年9月22日に来場する人のラッキー7考慮前の料金が¥1,000だった場合、チケット代は最終的には¥300になる。
  */
-function ラッキー7を適用する(price, date) {
+function ラッキー7を適用する(date, price) {
     // ここに処理を書く
     // ラッキー7処理後のチケット代は「totalPrice」という変数を用いよ。
+    const trimedDate = date.replace(/-/g, "");
+    const sumedNumber = trimedDate.split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+
+    let totalPrice = price;
+    if (sumedNumber % 7 == 0) {
+        totalPrice = price * 0.3;
+    }
+
+    // let totalPrice = price * (sumedNumber % 7 == 0 ? 1 : 0.3);
 
     return totalPrice;
 }
