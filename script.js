@@ -57,11 +57,17 @@ function 一人当たりのチケット料金を算出する(age) {
  * 全体のチケット代を算出する関数
  * 
  * 全体のチケット代は「人数 x チケット料金」でもとまる。
- * ただし、人数が10人を超えている場合は一人当たりのチケット代が1割引になる
+ * ただし、人数が10人以上の場合は一人当たりのチケット代が1割引になる
  */
 function 全体のチケット代を計算する(unitPrice, number) {
     // ここに処理を書く。
     // 全体のチケット代は「totalPrice」という変数を用いよ
+    let totalPrice = unitPrice * number;
+    if (10 <= number) {
+        totalPrice = totalPrice * 0.9;
+    }
+
+    // let totalPrice = unitPrice * number * (10 <= number ? 0.9 : 1);
 
     return totalPrice;
 }
