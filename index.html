@@ -14,15 +14,15 @@
     <p>下記を入力してチケットをご購入ください。</p>
     <div>
         <h3>来場日</h3>
-        <input type="date" name="date" required>
+        <input id="date" type="date" name="date">
     </div>
     <div>
         <h3>人数</h3>
-        <input type="number" min="1" required><span>人</span>
+        <input id="number" type="number" min="1"><span>人</span>
     </div>
     <div>
         <h3>年齢</h3>
-        <input type="radio" name="age" value="" id="young" required>
+        <input type="radio" name="age" value="young" id="young">
         <label for="young">15歳以下</label>
         <input type="radio" name="age" value="middle" id="middle">
         <label for="middle">16歳以上、59歳以下</label>
